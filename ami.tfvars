@@ -1,0 +1,9 @@
+amitype = "ami-0915e09cc7ceee3ab"
+i_type = "t2.micro"
+nlb = "terraform-network-load-balancer"
+lb_type = "network"
+vpc = "vpc-0a3e7ec569192c47a"
+tg = "aws-target-group-1"
+tg_protocol = "TCP"
+tg_port = 80
+tg_type = "instance"

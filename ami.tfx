@@ -1,0 +1,14 @@
+# Careating AMI from existing AMI
+resource "aws_ami" "ami" {
+  name = var.name
+  virtualization_type = var.type
+  root_device_name = var.dev
+  architecture = var.arc
+  ebs_block_device {
+    device_name = "/dev/xvda"
+    snapshot_id = "snap-024a04301b08d170a"
+    volume_size = 8
+    volume_type = "gp2"
+    encrypted = false
+  }
+}

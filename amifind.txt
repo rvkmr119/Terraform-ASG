@@ -1,0 +1,47 @@
+C:\Users\RK\.aws>
+C:\Users\RK\.aws>aws ec2 describe-images --region us-east-1 --image-ids ami-0915e09cc7ceee3ab
+{
+    "Images": [
+        {
+            "Architecture": "x86_64",
+            "CreationDate": "2020-04-07T05:39:31.000Z",
+            "ImageId": "ami-0915e09cc7ceee3ab",
+            "ImageLocation": "amazon/amzn-ami-hvm-2018.03.0.20200318.2-x86_64-gp2",	
+            "ImageType": "machine",
+            "Public": true,
+            "OwnerId": "137112412989",
+            "State": "available",
+            "BlockDeviceMappings": [
+                {
+                    "DeviceName": "/dev/xvda",
+                    "Ebs": {
+                        "DeleteOnTermination": true,
+                        "SnapshotId": "snap-024a04301b08d170a",
+                        "VolumeSize": 8,
+                        "VolumeType": "gp2",
+                        "Encrypted": false
+                    }
+                }
+            ],
+            "Description": "Amazon Linux AMI 2018.03.0.20200318.2 x86_64 HVM gp2",
+            "EnaSupport": true,
+            "Hypervisor": "xen",
+            "ImageOwnerAlias": "amazon",
+            "Name": "amzn-ami-hvm-2018.03.0.20200318.2-x86_64-gp2",
+            "RootDeviceName": "/dev/xvda",
+            "RootDeviceType": "ebs",
+            "SriovNetSupport": "simple",
+            "VirtualizationType": "hvm"
+        }
+    ]
+}
+
+C:\Users\RK\.aws>
+data "aws_ami_ids" "linux" {
+  owners = ["137112412989"]
+
+  filter {
+    name   = "name"
+    values = ["amazon/amzn-ami-hvm-*-*--x86_64-*"]
+  }
+}
